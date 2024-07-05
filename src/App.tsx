@@ -1,34 +1,40 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { Box} from '@mui/material'
 import './App.css'
+import { Link } from 'react-router-dom'
+import { GiWeightLiftingUp } from "react-icons/gi";
+import { BsEmojiSunglasses } from "react-icons/bs";
+import { MdPhotoSizeSelectLarge } from "react-icons/md";
+
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className='text-light row g-3 justify-content-center'>
+      <h1>3/6 Tasks done 😎</h1>
+      <p>I'd do the rest but.... I dont have to ¯\_(ツ)_/¯</p>
+      <div className='col-6 col-md-4'>
+        <Box className="w-100 bg-dark rounded-3 myOutline d-flex flex-column align-items-center justify-content-center noLink" minHeight={'12rem'} maxHeight={'12rem'} component={Link} to={'/bmi'}>
+          <div className='p-3'>
+            <h5>Emoji Picker</h5>
+            <GiWeightLiftingUp size={100} />
+          </div>
+        </Box>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+      <div className='col-6 col-md-4'>
+        <Box className="w-100 bg-dark rounded-3 myOutline d-flex flex-column align-items-center justify-content-center noLink" minHeight={'12rem'} maxHeight={'12rem'} component={Link} to={'/emoji'}>
+            <h5>Emoji Picker</h5>
+            <BsEmojiSunglasses size={100} />
+        </Box>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+      <div className='col-6 col-md-4'>
+        <Box className="w-100 bg-dark rounded-3 myOutline d-flex flex-column align-items-center justify-content-center noLink" minHeight={'12rem'} maxHeight={'12rem'} component={Link} to={'/compressor'}>
+          <div className='p-3'>
+            <h5>Image Compressor</h5>
+            <MdPhotoSizeSelectLarge size={100} />
+          </div>
+        </Box>
+      </div>
+    </div>
   )
 }
 

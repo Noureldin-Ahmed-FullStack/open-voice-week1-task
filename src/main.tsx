@@ -5,17 +5,31 @@ import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
 import './index.css'
 import EmojiList from './Components/EmojiList/EmojiList';
 import { createTheme, ThemeProvider } from '@mui/material';
+import { HashRouter as Router, Route, Routes } from 'react-router-dom';
+import App from './App';
+import CompressorWrapper from './Components/ImageCompressor/CompressorWrapper';
+import BMICalculator from './Components/BMI Calculator/BMICalculator';
 
 const theme = createTheme({
   palette: {
-      mode: 'dark'
+    mode: 'dark'
   },
 });
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <ThemeProvider theme={theme}>
+    <div className='w-100 MyFont'>
 
-      <EmojiList />
+    <ThemeProvider theme={theme}>
+      <Router>
+        <Routes>
+          <Route path="/" element={<App />} />
+          <Route path="/emoji" element={<EmojiList />} />
+          <Route path="/bmi" element={<BMICalculator />} />
+          <Route path="/compressor" element={<CompressorWrapper />} />
+          <Route path="*" element={<h1>lol wrong route</h1>} />
+        </Routes>
+      </Router>
     </ThemeProvider>
+    </div>
   </React.StrictMode>,
 )
