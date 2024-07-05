@@ -8,7 +8,8 @@ interface ImageCompressorProps {
 }
 
 const ImageCompressor: React.FC<ImageCompressorProps> = ({ onUpload, onError }) => {
-    const [selectedFile, setSelectedFile] = useState<Blob | null>(null);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const [_selectedFile, setSelectedFile] = useState<Blob | null>(null);
     const [imageUrl, setImageUrl] = useState<string | null>(null);
 
     const handleImageChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
