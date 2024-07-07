@@ -15,7 +15,7 @@ function App() {
       <div className='col-6 col-md-4'>
         <Box className="w-100 bg-dark rounded-3 myOutline d-flex flex-column align-items-center justify-content-center noLink" minHeight={'12rem'} maxHeight={'12rem'} component={Link} to={'/bmi'}>
           <div className='p-3'>
-            <h5>Emoji Picker</h5>
+            <h5>BMI calculator</h5>
             <GiWeightLiftingUp size={100} />
           </div>
         </Box>
