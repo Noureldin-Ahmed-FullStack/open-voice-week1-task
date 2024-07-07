@@ -10,6 +10,7 @@ import CompressorWrapper from './Components/ImageCompressor/CompressorWrapper';
 import BMICalculator from './Components/BMI Calculator/BMICalculator';
 import Store from './Components/Store/Store';
 import Text from './Components/Store/text';
+import PhotoGallery from './Components/PhotoGallery/PhotoGallery';
 
 const theme = createTheme({
   palette: {
@@ -29,6 +30,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
           <Route path="/compressor" element={<CompressorWrapper />} />
           <Route path="/test" element={<Text />} />
           <Route path="/store" element={<Store />} />
+          <Route path="/gallery" element={<PhotoGallery />} />
           <Route path="*" element={<h1>lol wrong route</h1>} />
         </Routes>
       </Router>

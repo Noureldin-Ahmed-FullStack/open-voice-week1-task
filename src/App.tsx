@@ -5,6 +5,7 @@ import { GiWeightLiftingUp } from "react-icons/gi";
 import { BsEmojiSunglasses } from "react-icons/bs";
 import { MdPhotoSizeSelectLarge } from "react-icons/md";
 import { MdOutlineLocalGroceryStore } from "react-icons/md";
+import { TfiGallery } from "react-icons/tfi";
 
 function App() {
 
@@ -37,8 +38,16 @@ function App() {
       <div className='col-6 col-md-4'>
         <Box className="w-100 bg-dark rounded-3 myOutline d-flex flex-column align-items-center justify-content-center noLink" minHeight={'12rem'} maxHeight={'12rem'} component={Link} to={'/store'}>
           <div className='p-3'>
-            <h5>Online store</h5>
+            <h5>Shopping Cart</h5>
             <MdOutlineLocalGroceryStore size={100} />
+          </div>
+        </Box>
+      </div>
+      <div className='col-6 col-md-4'>
+        <Box className="w-100 bg-dark rounded-3 myOutline d-flex flex-column align-items-center justify-content-center noLink" minHeight={'12rem'} maxHeight={'12rem'} component={Link} to={'/gallery'}>
+          <div className='p-3'>
+            <h5>Photo Gallery</h5>
+            <TfiGallery size={100} />
           </div>
         </Box>
       </div>

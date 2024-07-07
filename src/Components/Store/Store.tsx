@@ -55,6 +55,7 @@ interface ProdObj {
 }
 export default function Store() {
     const [Products, setProducts] = useState<ProdObj[]>([]);
+    const [SearchQuerry, setSearchQuerry] = useState<string>('');
     const [Cart, setCart] = useState<ProdObj[]>([]);
     const [Total, setTotal] = useState(0);
     const AddToCart = (product: ProdObj) => {
@@ -62,6 +63,18 @@ export default function Store() {
         localStorage.setItem('CartData', JSON.stringify([...Cart, product]))
 
     };
+
+    const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setSearchQuerry(event.target.value);
+    };
+
+    const filteredItems = SearchQuerry
+        ? Products.filter(
+            (item) =>
+                item.title.toLowerCase().includes(SearchQuerry.toLowerCase())
+        )
+        : Products;
+
     useEffect(() => {
         var total: number = 0
         for (let i = 0; i < Cart.length; i++) {
@@ -103,7 +116,7 @@ export default function Store() {
             setSnackBar(true);
 
             localStorage.setItem('CartData', JSON.stringify([]))
-        }else{
+        } else {
             setErrorSnack(true);
 
         }
@@ -135,9 +148,11 @@ export default function Store() {
         setOpen(false);
     };
     return (
-        <Box sx={{ width: '100%' }}>
+        <Box sx={{ width: '100%' ,color:'white'}}>
 
-<Snackbar
+            <h1 className=" mb-4">Shopping cart</h1>
+            <input type="text" placeholder="Search" className="w-100 mb-5" onChange={handleSearchChange} />
+            <Snackbar
                 open={SnackBar}
                 color="success"
                 anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
@@ -213,7 +228,7 @@ export default function Store() {
             </div>
 
             <Grid container rowSpacing={3} columnSpacing={3}>
-                {Products?.map((product) => (
+                {filteredItems?.map((product) => (
                     <Grid item xs={12} sm={6} md={3} key={product.id} className="">
                         {/* <div className=" p-3">{product.title}</div> */}
                         <Item className="p-3 BorderSettings">
