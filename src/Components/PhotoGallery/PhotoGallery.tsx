@@ -2,7 +2,6 @@ import { Grid } from "@mui/material";
 import { useEffect, useState } from "react";
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
-import { CiStar } from "react-icons/ci";
 import axios from "axios";
 
 interface NestedObject {
