@@ -1,4 +1,3 @@
-import React from 'react'
 import ReactDOM from 'react-dom/client'
 import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
 // import ListItems from './Components/ListItems/ListItems.jsx'
@@ -9,6 +8,8 @@ import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import App from './App';
 import CompressorWrapper from './Components/ImageCompressor/CompressorWrapper';
 import BMICalculator from './Components/BMI Calculator/BMICalculator';
+import Store from './Components/Store/Store';
+import Text from './Components/Store/text';
 
 const theme = createTheme({
   palette: {
@@ -16,7 +17,7 @@ const theme = createTheme({
   },
 });
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <div className='w-100 MyFont'>
 
     <ThemeProvider theme={theme}>
@@ -26,10 +27,12 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
           <Route path="/emoji" element={<EmojiList />} />
           <Route path="/bmi" element={<BMICalculator />} />
           <Route path="/compressor" element={<CompressorWrapper />} />
+          <Route path="/test" element={<Text />} />
+          <Route path="/store" element={<Store />} />
           <Route path="*" element={<h1>lol wrong route</h1>} />
         </Routes>
       </Router>
     </ThemeProvider>
     </div>
-  </React.StrictMode>,
+  // </React.StrictMode>,
 )
