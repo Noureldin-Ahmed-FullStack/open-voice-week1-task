@@ -10,7 +10,7 @@ function App() {
 
   return (
     <div className='text-light row g-3 justify-content-center'>
-      <h1>3/6 Tasks done 😎</h1>
+      <h1>4/6 Tasks done 😎</h1>
       <p>I'd do the rest but.... I dont have to ¯\_(ツ)_/¯</p>
       <div className='col-6 col-md-4'>
         <Box className="w-100 bg-dark rounded-3 myOutline d-flex flex-column align-items-center justify-content-center noLink" minHeight={'12rem'} maxHeight={'12rem'} component={Link} to={'/bmi'}>
