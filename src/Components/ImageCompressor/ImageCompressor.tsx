@@ -24,9 +24,10 @@ const ImageCompressor: React.FC<ImageCompressorProps> = ({ onUpload, onError }) 
 
         try {
             const options = {
-                maxSizeMB: 1, // Adjust for desired maximum size (in MB)
-                maxWidthOrHeight: 1920, // Adjust for desired maximum width or height (in pixels)
+                maxSizeMB: 0.1, // Adjust for desired maximum size (in MB)
+                maxWidthOrHeight: 600, // Adjust for desired maximum width or height (in pixels)
                 useWebWorker: true, // Utilize Web Workers for better performance
+                fileType: 'image/avif', // ✅ Convert to AVIF
             };
 
             const compressedFile = await imageCompression(imageFile, options);
@@ -50,7 +51,7 @@ const ImageCompressor: React.FC<ImageCompressorProps> = ({ onUpload, onError }) 
             {imageUrl && (
                 <div className='d-flex flex-column w-50'>
                     <img src={imageUrl} alt="Compressed Image" />
-                    <a href={imageUrl} className='my-3 btn btn-outline-success' download="compressed-image.jpg">
+                    <a href={imageUrl} className='my-3 btn btn-outline-success' download={imageFile.name + "compressed.jpg"}>
                         Download Compressed Image
                     </a>
                 </div>
